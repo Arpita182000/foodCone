@@ -11,44 +11,57 @@ import GridElements from "./GridElements";
 import UseContext from "../utils/UseContext";
 import { Provider } from 'react-redux';
 import AppStore from '../utils/AppStore'
+import { pageWithIdApi } from "../Api/PageId";
 
 export default function PagesWithId() {
   const {id} = useParams();
   // console.log(id)
 
 
-  const [resInfo, setResinfo] = useState(null);
-  const [gridData,setGridData]= useState();
+  const [resInfo, setResinfo] = useState(pageWithIdApi[0].data.cards[2].card.card);
+  const [gridData,setGridData]= useState(pageWithIdApi[0].data.cards[2]?.groupedCard?.cardGroupMap?.REGULAR);
   const [showIndex,setShowIndex]=useState(1);
+  const [isApiId,setIsApiID] =useState(pageWithIdApi[0].data.cards[2].card.card.info);
 
 
-  useEffect(() => {
-    getData();
-  }, []);
+  console.log(isApiId)
+  console.log(gridData)
+  console.log(resInfo)
+  useEffect(()=>{
+    
+  },[isApiId])
+
+  // setResinfo(pageWithIdApi[0].data.data.cards[2]?.card.card.info)
+  // console.log(setResinfo)
+  // let GridData = isApiId.data?.data?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR;
+  // console.log(GridData)
+  // setGridData(GridData)
+
+
+  // useEffect(() => {
+  //   getData();
+  // }, []);
  
  
-  let getData = () => {
-    axios
-      .get(
-        "https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=23.1744548&lng=88.5605732&restaurantId="+id+"&catalog_qa=undefined&submitAction=ENTER"
-      )
-      .then(function (response) {
-        setResinfo(response.data.data.cards[2]?.card.card.info)
-        // let getApiData = {
-        //   icon: "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_18,h_18/",
-        //   data: response.data?.data?.cards[0]?.card?.card?.info,
-        // };
+  // let getData = () => {
+  //   axios
+  //     .get(pageWithIdApi)
+  //     .then(function (response) {
+  //       console.log(response)
+        
+  //       // let getApiData = {
+  //       //   icon: "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_18,h_18/",
+  //       //   data: response.data?.data?.cards[0]?.card?.card?.info,
+  //       // };
 
 
-        // setResinfo(getApiData);
-        let GridData = response.data?.data?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR;
-        console.log(GridData)
-        setGridData(GridData)
+  //       // setResinfo(getApiData);
+     
        
         
        
-      });
-  };
+  //     });
+  // };
 
   const onlineStatus = useOnlineStatus();
   // const {setUserName,loggedInUser}=useContext(UseContext);
@@ -70,7 +83,7 @@ export default function PagesWithId() {
         {/* <input type="text" className="border-2" value={loggedInUser} onChange={(e)=>setUserName(e.target.value)}/> */}
         <div className="grid sm:grid-cols-2  grid-cols-1 items-center justify-between">
           <div>
-            <h2 className="font-bold text-xl py-1">{resInfo?.data?.name}</h2>
+            <h2 className="font-bold text-xl py-1">{resInfo?.name}</h2>
             <p className="text-xs text-gray-500 pb-2">
               {resInfo.data?.cuisines.join(",")}
             </p>
