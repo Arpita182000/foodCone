@@ -3,25 +3,36 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React, { useState } from "react";
 import ItemsList from "./ItemsList";
 import { Provider } from 'react-redux';
-import AppStore from '../utils/AppStore'
-export default function GridElements({ gridData, showIndex}) {
-  console.log(gridData)
-  const openAccordian = () => {
+import AppStore from '../utils/AppStore';
 
+export default function GridElements({ gridData }) {
+  const [showIndex, setShowIndex] = useState([]);
+
+  console.log(gridData);
+
+  const openAccordion = (index) => {
+    setShowIndex((prevState) => {
+      const newState = [...prevState];
+      newState[index] = !newState[index];
+      return newState;
+    });
   };
 
   return (
- 
     <div>
       {gridData?.cards?.length > 1 ? (
         gridData?.cards?.map((v, i) => (
-          <div key={i}>
-            <div
-              className="flex justify-between items-center py-3 border-b-2 shadow-lg cursor-pointer px-2"
-              onClick={openAccordian}
+          <div key={i} className="my-6">
+            {v.card?.card?.title &&  
+             <div
+              className="flex justify-between items-center py-3 border-b-2 shadow-['0 2px 4px rgba(0, 0, 0, 0.1)] cursor-pointer px-2"
+              onClick={() => openAccordion(i)}
             >
+
+              
               <h1 className="text-black text-lg font-bold rounded">
                 {v.card?.card?.title}&nbsp;
+                
                 {v.card.card?.itemCards?.length
                   ? `(${v.card.card?.itemCards.length})`
                   : ""}
@@ -29,15 +40,14 @@ export default function GridElements({ gridData, showIndex}) {
               <div>
                 <FontAwesomeIcon icon={faCaretDown} />
               </div>
-            </div>
-
-            {showIndex === i ? <ItemsList items={v.card?.card} /> : null}
+            </div>}
+          
+            {showIndex[i] && <ItemsList items={v.card?.card} />}
           </div>
         ))
       ) : (
-        <h2>hhhhh</h2>
+        <h2>Items are not found!!!</h2>
       )}
     </div>
-
   );
 }
