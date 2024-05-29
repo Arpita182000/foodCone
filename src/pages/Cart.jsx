@@ -52,13 +52,13 @@ export default function Cart() {
               <div key={index} className="mb-[8%] border-2">
                 <div className="max-w-[950px]  p-5 mx-auto ">
                   <div className="mb-[1px]">
-                    <div className="hidden md:block">
-                      <div className="flex flex-col md:flex-row justify-between items-center sm:flex  my-4">
-                        <div className=" basis-[250px] rounded">
+                    <div className="">
+                      <div className="sm:flex block justify-between items-center  my-4">
+                        <div className="flex justify-center items-center sm:block w-100 rounded mb-3 ">
                           <img
                             alt=""
                             src={imgLink + v.card.info.imageId}
-                            className="rounded"
+                            className="rounded w-100 h-100"
                           />
                         </div>
                         <h4 className=" flex justify-between items-center font-bold basis-[450px] px-4">
@@ -94,7 +94,7 @@ export default function Cart() {
                       </div>
                     </div>
                     {/* for small screen */}
-                    <div className="block md:hidden">
+                    {/* <div className="block md:hidden">
                       <div className="flex justify-center items-center border-b border-black ">
                         <h3 className="uppercase font-bold text-center text-xl my-5">
                           fproduct
@@ -140,7 +140,7 @@ export default function Cart() {
                           </h2>
                         </div>
                       </div>
-                    </div>
+                    </div> */}
                   </div>
                 </div>
               </div>

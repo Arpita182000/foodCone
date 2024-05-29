@@ -12,9 +12,17 @@ export default function GridElements({ gridData }) {
 
   const openAccordion = (index) => {
     setShowIndex((prevState) => {
-      const newState = [...prevState];
-      newState[index] = !newState[index];
-      return newState;
+     const newState ={};
+     for (let i = 0; i < gridData?.cards?.length; i++) {
+      if (i !== index) {
+        newState[i] = false;
+      }
+    }
+
+    // Toggle the clicked dropdown
+    newState[index] = !prevState[index];
+
+    return newState;
     });
   };
 

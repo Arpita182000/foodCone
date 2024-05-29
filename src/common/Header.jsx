@@ -28,7 +28,7 @@ export default function Header() {
     <Provider store={AppStore}>
       <div className="">
         <header className="w-full fixed top-0 left-0 bg-white z-[99999]">
-          <div className="max-w-[1290px] mx-auto grid grid-cols-4 xl:grid-cols-3">
+          <div className="max-w-[1290px] mx-auto grid sm:grid-cols-4 xl:grid-cols-4 grid-cols-3">
             <div className="flex gap-[20px] items-center">
               <img className="w-[100px]" src={logo} alt="logo" />
               <div className="font-bold text-[15px] flex gap-5">
@@ -94,7 +94,7 @@ export default function Header() {
                   </Link>
                 </li>
               </ul>
-              <div className="md:hidden flex justify-center">
+              <div className="md:hidden flex justify-end ml-10">
               <div className="font-bold ">
                 <Link to="/cart">
                   <FontAwesomeIcon icon={faCartShopping}></FontAwesomeIcon>

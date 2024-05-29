@@ -47,7 +47,7 @@ export default function ItemsList({ items }) {
                     <p>₹{v.card.info.price / 100}</p>
                   </div>
                   <div className="item-end w-3/12  rounded relative ">
-                    <div className="w-[150px] mx-auto">
+                    <div className="max-w-[150px] mx-auto">
                       <img alt="image"
                         src={imgLink + v.card.info.imageId}
                         

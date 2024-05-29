@@ -70,7 +70,7 @@ export default function PagesWithId() {
   return (
     <Provider store={AppStore}>
       <ToastContainer />
-      <div>
+      <div className="xl:p-0 p-3">
         <Header />
         <div className="max-w-[1120px] my-[8%] mx-auto">
           <p className="text-[12px] mb-10">
@@ -80,7 +80,7 @@ export default function PagesWithId() {
             /<span>Home</span>/<span className="font-bold">{resInfo?.areaName}</span>
           </p>
           {/* <input type="text" className="border-2" value={loggedInUser} onChange={(e)=>setUserName(e.target.value)}/> */}
-          <div className="grid sm:grid-cols-2  grid-cols-1 items-center justify-between">
+          <div className="grid sm:grid-cols-2  grid-cols-2  items-center justify-between">
             <div>
               <h2 className="font-bold text-xl py-1">{resInfo?.name}</h2>
               <p className="text-xs text-gray-500 pb-2">
@@ -90,7 +90,7 @@ export default function PagesWithId() {
                 {resInfo?.areaName}, {resInfo.sla?.lastMileTravelString}
               </p>
             </div>
-            <div className="border-2 w-20 h-15 text-center">
+            <div className="border-2 w-20 h-15 text-center sm:ml-0 ml-12">
               <p className="table  mx-auto">{resInfo?.avgRating}</p>
               <p className="table border-t-2">{resInfo?.totalRatingsString}</p>
             </div>
@@ -102,8 +102,8 @@ export default function PagesWithId() {
             </p>
           </div>
 
-          <div className="max-w-[800px] flex gap-3 my-5">
-            <div className="grid grid-cols-2 gap-3 ">
+          <div className="max-w-[800px] sm:flex block gap-3">
+            <div className="grid grid-cols-2 gap-3 my-3">
               {resInfo.aggregatedDiscountInfo?.descriptionList.map((v, i) => {
                 let app = v.meta;
                 let app2 = app.split("|");
@@ -120,7 +120,7 @@ export default function PagesWithId() {
                 );
               })}
             </div>
-            <div className="grid grid-cols-2 gap-3 ">
+            <div className="grid grid-cols-2 gap-3 my-3">
               {resInfo.aggregatedDiscountInfo?.shortDescriptionList.map(
                 (v, i) => {
                   let app = v.meta;
