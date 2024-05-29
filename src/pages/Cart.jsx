@@ -4,7 +4,7 @@ import Header from "../common/Header";
 import "../index.css";
 import { useDispatch, useSelector } from "react-redux";
 import { clearItem, removeItem } from "../utils/cartSlice";
-
+import Footer from '../common/Footer'
 export default function Cart() {
   const dispatch = useDispatch();
   const handelClearAll = () => {
@@ -198,11 +198,12 @@ export default function Cart() {
           <div className="row container st-title">
             <span className="text-lg font-extrabold">Your cart is empty</span>
           </div>
-          <div className="flex justify-center items-center py-[20%] text-lg font-bold">
+          <div className="flex justify-center items-center py-[20%] text-lg font-bold h-screen">
             your Cart looks empty!!!!!!!!!!!!😭
           </div>
         </div>
       )}
+      {/* <Footer/> */}
     </>
   );
 }

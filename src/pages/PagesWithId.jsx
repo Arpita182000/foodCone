@@ -15,6 +15,8 @@ import { pageWithIdApi } from "../Api/PageId";
 import logo from "../image/d.jpeg";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import Footer from '../common/Footer'
+
 export default function PagesWithId() {
   const { id } = useParams();
   // console.log(id)
@@ -143,6 +145,7 @@ export default function PagesWithId() {
           <GridElements gridData={gridData} />
         </div>
       </div>
+      <Footer/>
     </Provider>
   );
 }
