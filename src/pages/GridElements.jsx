@@ -8,7 +8,7 @@ import AppStore from '../utils/AppStore';
 export default function GridElements({ gridData }) {
   const [showIndex, setShowIndex] = useState([]);
 
-  console.log(gridData);
+  // console.log(gridData);
 
   const openAccordion = (index) => {
     setShowIndex((prevState) => {

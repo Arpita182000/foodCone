@@ -23,7 +23,7 @@ export default function Header() {
   const { loggedInUser } = useContext(UseContext);
 
   const cartItems = useSelector((store) => store.cart.items);
-  console.log(cartItems);
+  // console.log(cartItems);
   return (
     <Provider store={AppStore}>
       <div>
@@ -38,7 +38,7 @@ export default function Header() {
                 <div>
                   <form
                     onKeyUp={() => {
-                      console.log(searchState);
+                      // console.log(searchState);
                     }}
                   >
                     <input

@@ -3,7 +3,7 @@ import React from 'react';
 
 export default function ErrorPage() {
   const err = useRouteError();
-  console.log(err);
+  // console.log(err);
 
   // Set a default heading or use the error message as the heading content
   const headingContent = err ? `Error ${err.status}: ${err.message}` : 'Error Page Heading';

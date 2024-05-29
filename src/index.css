@@ -4,7 +4,10 @@
 header {
     box-shadow: 0 15px 40px -20px rgba(40, 44, 63, 0.15);
   }
-  
+  .custom-toast-container {
+    top: 15% !important; /* Position 5% from the top */
+    right: 0;           /* Align to the right */
+  }
 iframe {
   width: 100%;
   height: 100%;

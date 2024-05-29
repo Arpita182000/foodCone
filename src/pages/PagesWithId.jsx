@@ -13,6 +13,8 @@ import { Provider } from "react-redux";
 import AppStore from "../utils/AppStore";
 import { pageWithIdApi } from "../Api/PageId";
 import logo from "../image/d.jpeg";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 export default function PagesWithId() {
   const { id } = useParams();
   // console.log(id)
@@ -67,6 +69,7 @@ export default function PagesWithId() {
   if (resInfo === null) return <Shimmer></Shimmer>;
   return (
     <Provider store={AppStore}>
+      <ToastContainer />
       <div>
         <Header />
         <div className="max-w-[1120px] my-[8%] mx-auto">

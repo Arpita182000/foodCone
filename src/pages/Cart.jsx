@@ -11,7 +11,8 @@ export default function Cart() {
     dispatch(clearItem());
   };
   let [count, setCount] = useState(1);
-  const handelCount = () => {
+  const handelCount = (index) => {
+
     // Increment count, but ensure it doesn't go below 0
     setCount((prevCount) => Math.max(prevCount + 1, 0));
   };
@@ -79,7 +80,7 @@ export default function Cart() {
                                 </span>
                                 <button
                                   className="bg-gray-300 text-black px-1"
-                                  onClick={handelCount}
+                                  onClick={()=>handelCount(index)}
                                 >
                                   +&nbsp;
                                 </button>
@@ -150,7 +151,7 @@ export default function Cart() {
             >
               remove all
             </button>
-            <div className="grid grid-cols-1 md:grid-cols-2 border-t border-grey pt-[23px] box-border ">
+            {/* <div className="grid grid-cols-1 md:grid-cols-2 border-t border-grey pt-[23px] box-border ">
               <div className="p-5 min-[250px]:mx-auto   ">
                 <form className="flex items-center max-w-100 border border-gray-300">
                   <input
@@ -189,7 +190,7 @@ export default function Cart() {
                   <h4 className="check-div-btn-title"> Check out</h4>
                 </div>
               </div>
-            </div>
+            </div> */}
           </div>
         </>
       ) : (

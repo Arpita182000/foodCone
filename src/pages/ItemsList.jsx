@@ -3,12 +3,15 @@ import { useDispatch } from "react-redux";
 import { addItem } from "../utils/cartSlice";
 import { Provider } from 'react-redux';
 import AppStore from '../utils/AppStore';
-
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 export default function ItemsList({ items }) {
-  console.log(items)
+  // console.log(items)
+
   const dispatch = useDispatch();
   const handelBtn = (item)=>{
+    toast.success("item added successfully")
     dispatch(addItem(item))
   }
   const imgLink =
@@ -17,6 +20,15 @@ export default function ItemsList({ items }) {
   return (
 <Provider store={AppStore}>
     <div>
+    <ToastContainer className="custom-toast-container"
+        autoClose={5000} // Close after 5 seconds
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover/>
       {items.itemCards?.length > 1
         ? items.itemCards?.map((v, i) => {
             return (

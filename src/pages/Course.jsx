@@ -20,7 +20,7 @@ export default function Course() {
     imageLink: imageLink,
   });
 
-  console.log(thirdSlide.restApi.card.gridElements.infoWithStyle.restaurants[0].info.id)
+  // console.log(thirdSlide.restApi.card.gridElements.infoWithStyle.restaurants[0].info.id)
   const [fApi2, setfApi2] = useState(RestApi[0].data.cards[6].card);
   const [fApi, setfApi] = useState(RestApi[0].data.cards[7].card);
   const [fApi3, setfApi3] = useState(RestApi[0].data.cards[8].card);
