@@ -3,7 +3,7 @@ import cart from "../image/p.avif";
 import Header from "../common/Header";
 import "../index.css";
 import { useDispatch, useSelector } from "react-redux";
-import { clearItem } from "../utils/cartSlice";
+import { clearItem, removeItem } from "../utils/cartSlice";
 
 export default function Cart() {
   const dispatch = useDispatch();
@@ -16,9 +16,12 @@ export default function Cart() {
     setCount((prevCount) => Math.max(prevCount + 1, 0));
   };
 
-  const handelMinusCount = () => {
+  const handelMinusCount = (index) => {
     // Decrement count, but ensure it doesn't go below 0
     setCount((prevCount) => Math.max(prevCount - 1, 0));
+    if (index === 0) {
+      dispatch(removeItem());
+    }
   };
   const cartItems = useSelector((store) => store.cart.items);
   const imgLink =
@@ -35,7 +38,7 @@ export default function Cart() {
             </div>
           </div>
           <div className="max-w-[950px] p-5 mx-auto ">
-            <div className="sm:flex justify-between items-center border-b border-black ">
+            <div className="sm:flex justify-between items-center   ">
               <h3 className="uppercase font-bold sm:text-center">fproduct</h3>
               <div className="flex  justify-between items-center  uppercase font-bold text-[16px] gap-10 tracking-wide py-5 ">
                 <span>price</span>
@@ -45,7 +48,7 @@ export default function Cart() {
             </div>
             {cartItems.map((v, index) => (
               // console.log(v.card.length)
-              <div key={index} className="mb-[8%]">
+              <div key={index} className="mb-[8%] border-2">
                 <div className="max-w-[950px]  p-5 mx-auto ">
                   <div className="mb-[1px]">
                     <div className="hidden md:block">
@@ -67,7 +70,7 @@ export default function Cart() {
                               <h2>
                                 <button
                                   className="bg-gray-300 text-black px-1"
-                                  onClick={handelMinusCount}
+                                  onClick={() => handelMinusCount(index)}
                                 >
                                   -&nbsp;
                                 </button>
@@ -78,7 +81,6 @@ export default function Cart() {
                                   className="bg-gray-300 text-black px-1"
                                   onClick={handelCount}
                                 >
-                                  {" "}
                                   +&nbsp;
                                 </button>
                               </h2>
@@ -131,7 +133,7 @@ export default function Cart() {
                                 <h3> unitprice</h3>
                               </div>
                               <div className="">
-                                <h2>$498</h2>
+                                <h2>498</h2>
                               </div>
                             </div>
                           </h2>
@@ -168,11 +170,11 @@ export default function Cart() {
                 <div className="access-div">
                   <div className="row menu-con-title">
                     <span>Subtotal</span>
-                    <span>$998</span>
+                    <span>998</span>
                   </div>
                   <div className="row menu-con-title">
                     <span>Shipping Fee</span>
-                    <span>$60</span>
+                    <span>60</span>
                   </div>
                   <div className="row menu-con-title">
                     <span>Coupon</span>
@@ -180,7 +182,7 @@ export default function Cart() {
                   </div>
                   <div className="row cart-last-title">
                     <h2>TOTAL</h2>
-                    <h2>$1018</h2>
+                    <h2>1018</h2>
                   </div>
                 </div>
                 <div className="check-div">
@@ -196,7 +198,6 @@ export default function Cart() {
             <span className="text-lg font-extrabold">Your cart is empty</span>
           </div>
           <div className="flex justify-center items-center py-[20%] text-lg font-bold">
-            {" "}
             your Cart looks empty!!!!!!!!!!!!😭
           </div>
         </div>
