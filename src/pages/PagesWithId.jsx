@@ -30,9 +30,9 @@ export default function PagesWithId() {
     pageWithIdApi[0].data.cards[2].card.card.info
   );
 
-  console.log(isApiId);
-  console.log(gridData);
-  console.log(resInfo);
+  // console.log(isApiId);
+  // console.log(gridData);
+  // console.log(resInfo);
   useEffect(() => {}, [isApiId]);
 
   // setResinfo(pageWithIdApi[0].data.data.cards[2]?.card.card.info)

@@ -166,7 +166,7 @@ header {
 }
 .col {
   /* width: 25%; */
-  max-height: 350px;
+  /* max-height: 350px; */
   padding: 0px 10px;
   box-sizing: border-box;
   margin-top: 20px;
@@ -337,6 +337,7 @@ row price-div .col3-para-2 {
 .featured-col .title {
   text-transform: uppercase;
   margin-bottom: 30px;
+
 }
 .col4 {
   justify-content: space-between;

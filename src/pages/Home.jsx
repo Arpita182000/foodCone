@@ -17,12 +17,12 @@ export default function Home() {
   return (
    <Provider store={AppStore}>
     <UseContext.Provider value={{loggedInUser:userName,setUserName}} >
-     <>
+     <div className='sm:p-0 p-3'>
 
     <Header/>
     <Course/>
     <Footer/>
-    </>
+    </div>
    </UseContext.Provider>
    </Provider>
   )

@@ -14,25 +14,53 @@ export default function SecondSlider({secondSlide}) {
     return text.substring(0, maxLength) + '...';
   };
 
-  const settings = {
-    className: "center",
-    centerMode: true,
-    infinite: true,
-    centerPadding: "60px",
-    slidesToShow: 3,
-    speed: 500
+  var settings = {
+    dots: true,
+    infinite: false,
+    speed: 500,
+    slidesToShow: 4,
+    slidesToScroll: 4,
+    initialSlide: 0,
+    responsive: [
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 3,
+          slidesToScroll: 3,
+          infinite: true,
+          dots: true
+        }
+      },
+      {
+        breakpoint: 600,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 2,
+          initialSlide: 2
+        }
+      },
+      {
+        breakpoint: 480,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          dots: false,
+        }
+      }
+    ]
   };
+  
   return (
     <>
-         <div className="container border-b-2 border-[slate-200] pt-[6%]">
+         <div className="container border-b-2 border-[slate-200] pt-[6%]  sm:my-0 my-3">
         <div className="featured-col ">
-          <h4 className=" font-extrabold text-2xl my-3 px-2">{secondSlide.restApi.card.header.title}</h4>
+          <h4 className=" font-extrabold text-2xl sm:mt-0 mt-[20%]  px-2 ">{secondSlide.restApi.card.header.title}</h4>
         <Slider {...settings}>
           {SecondSlider.length >= 1 ?
             secondSlide.restApi.card?.gridElements?.infoWithStyle?.restaurants?.map((restaurant, index)=>{
               
                 return(
-                  <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 best-container border-[danger]" key={index}>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 best-container border-[danger]" key={index}>
 
                   <div className="" >
                   <Link to='/'>
@@ -41,7 +69,7 @@ export default function SecondSlider({secondSlide}) {
                         <div className="item-img">
                           <div className="main-img relative  ">
                             <img src={secondSlide.imageLink+restaurant.info.cloudinaryImageId }  alt='foodcone'/>
-                            <h1 className="absolute bottom-[10px] left-[30%] text-white text-[25px] font-bold">hello world</h1>
+                            <h1 className="absolute bottom-[10px] left-[30%] text-white text-[25px] font-bold">20% off </h1>
                           </div>
                         </div>
                         <div className='p-4'>                      

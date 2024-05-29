@@ -17,7 +17,7 @@ export default function Footer() {
      <div className=' bg-slate-200 items-center p-5  w-[100%]'>
       <div className='max-w-screen-xl  mx-auto grid md:grid-cols-2 grid-cols-1 '>
         <h2 className='px-10 font-extrabold sm:text-3xl text-xl  text-gray-700'>{fApi4.card.title}</h2>
-        <div className=" flex items-center justify-end px-10">
+        <div className=" flex items-center justify-center sm:justify-end px-10">
                     <img src={app1} alt=''/>
                     <img src={google} alt=''/>
                 </div>

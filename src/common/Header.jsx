@@ -26,7 +26,7 @@ export default function Header() {
   // console.log(cartItems);
   return (
     <Provider store={AppStore}>
-      <div>
+      <div className="">
         <header className="w-full fixed top-0 left-0 bg-white z-[99999]">
           <div className="max-w-[1290px] mx-auto grid grid-cols-4 xl:grid-cols-3">
             <div className="flex gap-[20px] items-center">
@@ -35,7 +35,7 @@ export default function Header() {
                 <div className="position-relative">
                   <Link to="/">HOME</Link>
                 </div>
-                <div>
+                <div className="sm:flex hidden">
                   <form
                     onKeyUp={() => {
                       // console.log(searchState);
@@ -52,7 +52,7 @@ export default function Header() {
                 </div>
               </div>
             </div>
-            <nav className="xl:col-span-2 col-span-3 text-[#3D4152] flex items-center justify-end">
+            <nav className="xl:col-span-2 md:col-span-3 col-span-2 text-[#3D4152] flex items-center justify-end">
               <ul className="md:flex hidden w-[671px] justify-around">
                 <li>online status:{onlineStatus ? "✅" : "🔴"}</li>
                 <li className="font-medium">
@@ -82,7 +82,7 @@ export default function Header() {
                     {/* <UseContext.Provider value={{loggedInUser:"Elon Mask"}}></UseContext.Provider> */}
                   </Link>
                 </li>
-                <li className="font-bold">
+                <li className="font-bold flex">
                   <Link to="/cart">
                     <FontAwesomeIcon icon={faCartShopping}></FontAwesomeIcon>
                     &nbsp;&nbsp;Cart-
@@ -94,7 +94,21 @@ export default function Header() {
                   </Link>
                 </li>
               </ul>
+              <div className="md:hidden flex justify-center">
+              <div className="font-bold ">
+                <Link to="/cart">
+                  <FontAwesomeIcon icon={faCartShopping}></FontAwesomeIcon>
+                  &nbsp;&nbsp;Cart-
+                  {cartItems.length === 0
+                    ? "0"
+                    : cartItems.length <= 10
+                    ? `0${cartItems.length}`
+                    : `${cartItems.length}`}
+                </Link>
+              </div>
+            </div>
             </nav>
+           
           </div>
         </header>
       </div>
